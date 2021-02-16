@@ -31,7 +31,18 @@
 
 #### 2. clone
 
-1. `git clone url`을 이용해서 clone을 생성한다.
+1. `git clone`명령을 이용해서 clone을 생성한다.
+   ```
+   git clone https://github.com/Starcush/study-git.git
+   ```
    `git clone`을 사용하면 프로젝트의 히스토리를 전부 받아온다.
-2. 디텍토리 이름은 따로 설정하고 싶다면 `url`뒤에 원하는 디렉토리 이름을 작성한다
+2. 디텍토리 이름은 따로 설정하고 싶다면 `url`뒤에 원하는 디렉토리 이름을 작성한다<br>
    `git clone url directory_name`
+
+   ```
+   git clone https://github.com/Starcush/study-git.git studyingGit
+   ```
+
+   <br>
+
+<img src="assets/git_clone.png" width="300px" height="200px">
