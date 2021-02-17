@@ -9,7 +9,7 @@
   - 조금 더 자세한 내용은 계속 공부하면서 알아가려고 합니다.
 - 참고 : [git이 저장하는 방식 - 박준우블로그](https://junwoo45.github.io/2019-09-03-git%EC%9D%B4%EC%A0%80%EC%9E%A5%ED%95%98%EB%8A%94%EB%B0%A9%EC%8B%9D/), [what is a git snap shot - stackoverflow](https://stackoverflow.com/questions/4964099/what-is-a-git-snapshot)
 
----
+<br>
 
 ### 거의 모든 명령을 로컬에서 실행
 
@@ -21,7 +21,7 @@
 - 예를 들면 Git은 프로젝트의 히스토리를 조회할 때 서버없이 조회한다. 그래서 어떤 파일의 현재 버전과 한 달 전의 상태를 비교하고 싶을 때도 리모트에 접근해서 조회하지 않아도 된다.
 - 또한 인터넷이 연결되지 않은 상태에서 작업 후 커밋이 가능하다.
 
----
+<br>
 
 ### Git의 무결성(Integrity)
 
@@ -33,7 +33,7 @@
   - 아직 **체크섬**이 어떻게 데이터를 관리하는지는 모르지만 `git log` 명령을 사용하면 볼 수 있다.
     <img src="assets/git_log.png" width="400px" height="300px">
 
----
+<br>
 
 ### Git은 데이터를 추가할 뿐
 
@@ -56,7 +56,7 @@
   2. 수정한 파일을 `Staging Area`에 `Stage`해서 커밋할 스냅샷을 만들면 파일은 `Staged` 상태이다. 단, `Staging Area`에 추가한 파일이 아니면 아직 `Modified` 상태이다.
   3. 그리고 `Staged` 상태의 파일을 `commit`해서 `Git Directory`로 간다면 파일은 `Committed` 상태가 된다. 이 또한 `commit`하지 않은 파일은 아직 `Staging Area`에 있다.
 
----
+<br>
 
 ### CLI
 
@@ -64,13 +64,13 @@
   - 하지만 CLI가/를 ~~더 멋있는거 같아서..~~ 위주로 공부해보려 합니다.
 - terminal과 powershell 중심의 공부
 
----
+<br>
 
 ### Git 설치 및 기본 설정
 
 - git 자체에 대한 공부다 보니 설치 및 기본 설정은 생략합니다.
 
----
+<br>
 
-- 아직 완벽히 이해하지는 못했고 찾는 과정에서 나왔던 블로그([github blog](!https://github.blog/2020-12-17-commits-are-snapshots-not-diffs/))에 대해 더 깊게 공부하고 싶긴 하지만 먼저 progit을 끝까지 마무리한 후에 추가로 공부하려고 합니다.
-- 사진출처: [progit](!https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F)
+- 아직 완벽히 이해하지는 못했고 찾는 과정에서 나왔던 블로그([github blog](https://github.blog/2020-12-17-commits-are-snapshots-not-diffs/))에 대해 더 깊게 공부하고 싶긴 하지만 먼저 progit을 끝까지 마무리한 후에 추가로 공부하려고 합니다.
+- 사진출처: [progit](https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F)
