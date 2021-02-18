@@ -46,11 +46,11 @@ git clone명령을 통해 서버에 있는 데이터를 가져오면서 git 저�
 
     <img src="assets/git_add_modified_again.png" width="400px" height="300px">
 
-  - 이는 `git commit`명령을 실행하는 시점에 맞는 버전이 커밋되는게 아니라 마지막으로 `git add`를 실행한 시점의 버전이 커밋된다. 그렇기 때문에 `git add`명령을 실행한 후 파일을 수정했다면 다시 `git add`명령을 사용해서 최신 버전을 Staged 상태로 만들어야 한다.
+  - 이는 `git commit`명령을 실행하면 `git commit`을 실행한 시점이 아니라 마지막으로 `git add`를 실행한 시점의 파일이 커밋된다. 그렇기 때문에 `git add`명령을 실행한 후 파일을 수정했다면 다시 `git add`명령을 사용해서 최신 버전을 **Staged** 상태로 만들어야 한다.
 
   <img src="assets/git_add_modified_again2.png" width="400px" height="300px">
 
-  - 커밋하도록 정하지 않은 변경 사항(**Unstaged 상태**)에 `chapter2/modify_and_save.md `파일이 없어진 것을 볼 수 있다.
+  - `git add`명령으로 최신 버전의 파일을 추가했더니 커밋하도록 정하지 않은 변경 사항(**Unstaged 상태**)에 `chapter2/modify_and_save.md `파일이 없어진 것을 볼 수 있다.
 
 ### 파일 상태를 짤막하게 확인하기
 
@@ -58,7 +58,8 @@ git clone명령을 통해 서버에 있는 데이터를 가져오면서 git 저�
 
   <img src="assets/git_status_short.png" width="400px" height="300px">
 
-  - `git stattus -s`을 사용하면 2가지 정보가 확인이 가능한데 왼쪽에는 **Staging Area**의 상태를 오른쪽에는 **Working Tree**에서의 상태를 표시한다.
+  - `git stattus -s`을 사용하면 2가지 정보가 확인이 가능하다
+  - 왼쪽: **Staging Area**의 상태 / 오른쪽: **Working Tree**의 상태
   - **??** : Untracked 파일
   - **A** : Untracked 파일인데 Staged 상태(파일을 추가했다) - **Staging Area**
   - **M** : Tracked 파일인데 Modified 상태(파일을 수정했다) - **Staging Area**
