@@ -67,6 +67,8 @@ git clone명령을 통해 서버에 있는 데이터를 가져오면서 git 저�
 
 ### 파일 무시하기
 
+#### `.gitignore` 파일을 통해 tracking 하지 않기를 원하는 파일 및 폴더를 설정 할 수 있다.
+
 - Git을 통해 관리할 필요가 없는 파일도 존재한다. 그런 파일은 `.gitignore`파일을 만들고 무시할 패턴을 적어준다.
 - `.gitignore`파일에 입력하는 패턴
   - 아무것도 없는 라인이나, '#'로 시작하는 라인은 무시한다.
@@ -99,3 +101,30 @@ git clone명령을 통해 서버에 있는 데이터를 가져오면서 git 저�
   # doc 디렉토리 아래의 모든 .pdf 파일을 무시
   doc/**/*.pdf
   ```
+
+### Staged와 Unstaged 상태의 변경 내용을 보기
+
+#### 변경된 파일이 아닌 내용을 확인하고 싶을 땐 `git status`가 아닌 `git diff`, `git diff --staged`, `git diff --cache`
+
+- 보통 어떤 파일이 `staged`상태이고 어떤 파일이 `staged`상태가 아닌지 확인하기 때문에 `git status`명령으로도 충분하기도 하지만
+- `unstaged`상태의 파일에서 어떤 라인이 추가되고 삭제됐는지 구체적으로 확인하고 싶다면 `git diff`명령을 사용하면 된다.
+- 어제 마지막 커밋을 한 후 작성한 내용은 위의 3줄인데 이 상황에서 `git diff`명령을 사용해보자.
+  <img src="assets/git_diff.png" width="400px" height="300px">
+
+  - 위의 이미지를 보면 `chapter2/modify_and_save.md`파일에서 어떤 부분이 추가됐는지 초록색 글자로 확인이 가능하다.
+  - 그런데 `git diff`명령은 아직 `staged`상태가 아닌 파일만 확인이 가능하다고 하니 지금까지의 수정내용을 `git add`를 통해 `staged`상태로 변경한 후 다시 `git diff`명령을 사용해보자.
+
+  <img src="assets/git_diff_after_git_add.png" width="400px" height="300px">
+
+  - 아무 내용이 없는 것을 확인할 수 있다.
+  - 그래서 이럴 때는 `git diff --staged` 혹은 `git diff --cache`라는 옵션을 주면 `staged`상태의 파일을 확인이 가능하다.
+
+  <img src="assets/git_diff_staged.png" width="400px" height="300px">
+
+- 참고로 tool을 사용해서도 비교가 가능한데 `git difftool` 명령을 사용해서 emerge, vimdiff 같은 도구로 비교할 수 있다. 지금 vim을 사용하기 때문에 vimdiff로 설정했는데 tool을 설정하는 방법은 [git difftool 사용법](https://goodtogreate.tistory.com/entry/git-difftool-%EC%82%AC%EC%9A%A9%EB%B2%95) 블로그를 참고했습니다.
+
+### 변경사항 커밋하기
+
+#### `git commit` 명령을 사용해서 커밋한다.
+
+- `git add`를 통해 `Staging Area`에 파일을 옮겨뒀다면 `git commit`을 통해 커밋이 가능하다. `git commit`을 통해서는 `staged`상태의 파일만 커밋이 가능하다는 사실을 기억하자. `modified`상태의 파일은 커밋이 불가능하다.
