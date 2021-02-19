@@ -175,5 +175,3 @@ git clone명령을 통해 서버에 있는 데이터를 가져오면서 git 저�
 #### `git mv file_from file_to`명령을 사용하면 file_to로 파일 이름을 변경할 수 있습니다.
 
 - 사실 이 명령은 기존의 파일을 `file_to`의 이름으로 복사한 후 `file_from`을 삭제하는 것과 동일합니다.
-
-  <img src="assets/git_mv.png" width="400px" height="300px">
