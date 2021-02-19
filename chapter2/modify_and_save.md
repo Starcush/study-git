@@ -128,3 +128,31 @@ git clone명령을 통해 서버에 있는 데이터를 가져오면서 git 저�
 #### `git commit` 명령을 사용해서 커밋한다.
 
 - `git add`를 통해 `Staging Area`에 파일을 옮겨뒀다면 `git commit`을 통해 커밋이 가능하다. `git commit`을 통해서는 `staged`상태의 파일만 커밋이 가능하다는 사실을 기억하자. `modified`상태의 파일은 커밋이 불가능하다.
+  <img src="assets/git_commit.png" width="400px" height="300px">
+
+  - `git commit`명령을 입력하면 다음과 같은 창이 뜨는데 이는 `vim` 편집기의 화면이다. 다른 편집기를 사용하고 싶다면 `git config --global core.editor`를 통해 설정이 가능하다.
+
+  <img src="assets/git_commit2.png" width="400px" height="300px">
+
+  - 어떤 내용을 수정했는지 커밋 메세지에 작성하고 커밋을 완료한다. 이미지의 경우에는 `chapter2`의 `modify_and_save.md`파일에 `git diff`와 `git commit`에 관한 내용을 추가했으므로 위와 같이 작성했습니다.
+  - `git commit`이 아닌 `git commit -m`을 사용하면 `vim` 편집기를 사용하지 않고 커밋이 가능하다.
+
+  <img src="assets/git_commit_message.png" width="400px" height="300px">
+
+  - `git commit -m`명령을 통해 새로 추가한 스크린샷 이미지를 추가하는 커밋을 작성했다.
+
+- 커밋이 완료된 위의 이미지를 보면 `git commit`명령이 몇 가지의 정보를 출력 하는 것을 알 수 있다.
+- 위의 예제는 `main`브랜치에 `2021.02.19 chapter2 - 이미지 파일 추가`라는 커밋 메세지로 커밋했고, 체크섬은 `9412002`라는 것을 알려준다. 또한 어떤 내용이 추가됐는지를 알려준다.
+- 커밋할 때마다 프로젝트의 스냅샷을 기록하기 때문에 나중에 스냅샷끼리 비교하거나 예전 스냅샷으로 되돌릴 수 있다.
+
+### git add 명령어 없이 커밋하기
+
+#### `git commit -a`라는 옵션을 추가하면 tracked 상태의 파일을 자동으로 Staging Area에 넣는다. `git add`명령을 실행하는 수고를 덜 수 있다.
+
+<img src="assets/git_commit_a.png" width="400px" height="300px">
+
+- `git add`명령을 하지 않았음에도 track중인 `modify_and_save.md`파일을 자동으로 `Staging Area`에 추가해서 커밋할 수 있도록 했다.
+
+### 파일 삭제하기
+
+#### `git rm`명령을 통해서는 실제로 파일 삭제가 가능하고 `git rm --cache`명령으로는 `Staging Area`에서 삭제가 가능하다.
