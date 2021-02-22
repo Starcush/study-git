@@ -13,4 +13,6 @@
 
 #### Chapter2
 
-[1. 저장소 만들기](./chapter2/make_repository.md)
+[1. 저장소 만들기](./chapter2/make_repository.md)<br>
+[2. 수정하고 저장소에 저장하기](./chapter2/modify_and_save_repo.md)<br>
+[3. 커밋 히스토리 조회하기](./chapter2/viewing_the_commit_history.md)
