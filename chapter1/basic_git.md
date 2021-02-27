@@ -31,7 +31,7 @@
 - SHA-1을 통해 만든 체크섬은 40자 길이의 16진수 문자열이다. 파일의 내용이다 디렉토리 주로를 이용해서 체크섬을 구한다.
 - 하나의 예를 들면 `24b9da6552252987aa493b52f8696cd6d3b00373`와 같은 문자열이다.
   - 아직 **체크섬**이 어떻게 데이터를 관리하는지는 모르지만 `git log` 명령을 사용하면 볼 수 있다.
-    <img src="assets/git_log.png" width="400px" height="300px">
+    <img src="assets/git_log.png" width="500px" height="400px">
 
 <br>
 
