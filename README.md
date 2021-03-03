@@ -20,3 +20,7 @@
 [5. 리모트 저장소](./chapter2/working_with_remote.md)<br>
 [6. 태그](./chapter2/git_tag.md)<br>
 [7. Git Alias](./chapter2/git_alias.md)
+
+#### Chapter3
+
+[1. 브랜치란 무엇인가](./chapter3/branches_in_nutshell.md)
