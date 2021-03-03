@@ -35,9 +35,15 @@ $ git status
 
 파일을 `Stage`하면 Git 저장소에 파일을 저장하고(Git은 이걸 Blob이라고 부른다) `Staging Area`에 해당 파일의 체크섬을 저장한다.
 
-- 여기서 파일을 `Stage`한다는 것은 `git add`명령을 사용한다는 것
-- 그리고 Git 저장소에 파일을 저장한다는 것은(Blob) `.git` 디렉토리에 파일을 저장한다는 것.
+- 여기서 파일을 `Stage`한다는 것은 `git add` 명령을 통해 각각의 체크섬이 생성되고
+- `Git Repository`(.git directory)에 해당 버전의 파일을 저장한다는 것(Blob)
+- 그리고 `Stating Area`에 체크섬을 저장한다.
+- 조금 헷갈리는게 `Git Repository`에 파일을 저장하는 것과 `Staging Area`에 체크섬을 저장하는 것을 왜 구분 할까?
+  - 이 문제는 좀 더 공부 한 후 고민해보자
 
 ```
-
+git add README.md chapter3/
+git commit -m '2021.03.03 chapter3 - git branches'
 ```
+
+- `git commit` 명령을 통해 커밋을 생성하면, 루트 디렉토리와 하위 디렉토리의 체크섬을 만들고 Git repository에 `tree object`로써 저장된다. 즉 여기서 `Git repository`에 저장된 `tree object`에 들어 있는 건 디렉토리의 `**체크섬**`!
