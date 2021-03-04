@@ -47,3 +47,93 @@ git commit -m '2021.03.03 chapter3 - git branches'
 ```
 
 - `git commit` 명령을 통해 커밋을 생성하면, 루트 디렉토리와 하위 디렉토리의 체크섬을 만들고 Git repository에 `tree object`로써 저장된다. 즉 여기서 `Git repository`에 저장된 `tree object`에 들어 있는 건 디렉토리의 `**체크섬**`!
+
+이 작업을 마치고 나면 Git 저장소에는 다섯 개의 데이터 개체가 생긴다.
+
+- 각 파일에 대한 Blob 세 개(Git 저장소에 파일을 저장)
+- Blob으로 저장되어 있는 파일과 디렉토리 구조가 들어 있는 트리 개체 하나(파일과 디렉토리 구조를 가진 개체는 별도로 있음)
+- 메타데이터(저자나 커밋 메세지)와 루트 트리를 가리키는 포인터가 담긴 커밋 개체 하나(커밋에 대한 정보를 가진 개체 하나)
+
+<img src="assets/commit_tree_data.png" width="60%" height="60%">
+
+다시 파일을 수정하고 커밋하면 직전 커밋에 대한 포인터를 함께 저장한다.
+
+<img src="assets/commit_before_commit.png" width="60%" height="60%">
+
+- 이미지에 있는 커밋 체크섬을 확인해보면 트리에 대한 체크섬과 parent에 대한 체크섬 정보도 가지고 있다.
+
+Git 에서의 브랜치는 이런 커밋들 사이를 움직일 수 있는 포인트 같은 것이다.
+
+<img src="assets/commit_history.png" width="60%" height="60%">
+
+### 새로운 브랜치를 만들어보자
+
+새로운 브랜치를 생성해 보고 브랜치를 어떻게 사용할 수 있는지 알아보자. 먼저 `git branch` 명령을 사용하면 새로운 브랜치를 만들 수 있다.
+
+```
+$ git branch testing
+```
+
+<img src="assets/branches_pointing_commit.png" width="60%" height="60%">
+
+새롭게 브랜치를 만들었는데 그러면 `Git`은 어떻게 현재 작업 중인 브랜치를 알 수 있을까?
+Git은 `**HEAD**`라는 특별한 포인터를 가진다. `**HEAD**`라는 포인터는 현재 위치하고 있는 로컬 브랜치(지금 수정하고 있는)를 가리킨다.
+그럼 아까 `git branch`를 통해 새로운 브랜치를 만들었으니 `HEAD`는 `tesing`을 가리키고 있을까?
+이는 `git log` 명령을 통해 확인이 가능하다.
+
+```
+$ git log --online --decorate
+```
+
+<img src="assets/git_log_deco.png" width="60%" height="60%">
+
+- 위의 이미지는 progit에 나온 예제가 아니라 실제 내가 작업하고 있는 git이다 보니 커밋 체크섬이 다르다.
+
+로그를 확인해보면 `HEAD`가 아직 `main` 브랜치를 가리키고 있는 것을 알 수 있다.
+이는 `git branch`는 새로운 브랜치를 만들기만 하고 움직이지는 않기 때문이다.
+
+<img src="assets/head_pointer.png" width="60%" height="60%">
+
+### 브랜치 이동하기
+
+그러면 새로 만든 `testing` 브랜치로 이동해보자. `git checkout` 명령을 사용하면 다른 브랜치로 이동이 가능하다.
+
+```
+$ git checkout testing
+```
+
+<img src="assets/git_log_deco_testing.png" width="60%" height="60%">
+
+`HEAD`가 `testing`을 가리키고 있는 걸 알 수 있다. 현재의 상태를 커밋 해시는 다르지만 다음과 같은 상황이라고 볼 수 있다.
+
+<img src="assets/head_points_testing.png" width="60%" height="60%">
+
+`testing`으로 옮겨져 있는 상태에서 새롭게 커밋을 해보자.
+
+<img src="assets/status_before_commit.png" width="60%" height="60%">
+
+- 오늘 작업한 내용이다.
+
+<img src="assets/git_log_after_commit.png" width="60%" height="60%">
+
+- 이미지를 보면 `main` 브랜치와 `testing` 브랜치가 가리키고 있는 커밋이 다르다는 것을 볼 수 있다.
+
+그러면 다시 `main` 브랜치로 이동하고 새로운 내용을 수정해보자. 그리고 커밋을 해보면 다음과 같은 이미지를 볼 수 있다.
+
+<img src="assets/git_log_from_main_branch.png" width="60%" height="60%">
+
+위의 두 내용으로 보이는 것은 `testing`과 `main`에서 새롭게 한 커밋의 이전 커밋은 모두 `f6101b8`라는 것이다.
+그리고 실제로 한 브랜치에서 작업하다 보니 보여주는게 어렵지만 브랜치를 이동하면 해당 브랜치에 가장 최근에 커밋한 내용을 토대로 작업을 한다는 것을 알 수 있다.
+한마디로 브랜치별로 독립적으로 작업이 가능하다. 만약 따로 작업한 브랜치를 합치고 싶다면 `merge` 명령을 사용하면 된다.
+
+그리고 `git log` 명령을 사용하면 `HEAD`가 가리키고 있는 브랜치는 어디고, 어떤 브랜치가 있고 만들어졌는지를 `commit` history와 함께 확인이 가능하다.
+
+```
+$ git log --oneline --decorate --graph --all
+```
+
+<img src="assets/git_log_graph_all.png" width="60%" height="60%">
+
+### 이해가 덜 된 점
+
+- `Staging Area`에 체크섬을 저장한다, 와 Git 저장소에 저장한다는게 어떤게 다를까?
