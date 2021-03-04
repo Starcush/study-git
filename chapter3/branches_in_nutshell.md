@@ -110,6 +110,30 @@ $ git checkout testing
 
 `testing`으로 옮겨져 있는 상태에서 새롭게 커밋을 해보자.
 
+<img src="assets/status_before_commit.png" width="60%" height="60%">
+
+- 오늘 작업한 내용이다.
+
+<img src="assets/git_log_after_commit.png" width="60%" height="60%">
+
+- 이미지를 보면 `main` 브랜치와 `testing` 브랜치가 가리키고 있는 커밋이 다르다는 것을 볼 수 있다.
+
+그러면 다시 `main` 브랜치로 이동하고 새로운 내용을 수정해보자. 그리고 커밋을 해보면 다음과 같은 이미지를 볼 수 있다.
+
+<img src="assets/git_log_from_main_branch.png" width="60%" height="60%">
+
+위의 두 내용으로 보이는 것은 `testing`과 `main`에서 새롭게 한 커밋의 이전 커밋은 모두 `f6101b8`라는 것이다.
+그리고 실제로 한 브랜치에서 작업하다 보니 보여주는게 어렵지만 브랜치를 이동하면 해당 브랜치에 가장 최근에 커밋한 내용을 토대로 작업을 한다는 것을 알 수 있다.
+한마디로 브랜치별로 독립적으로 작업이 가능하다. 만약 따로 작업한 브랜치를 합치고 싶다면 `merge` 명령을 사용하면 된다.
+
+그리고 `git log` 명령을 사용하면 `HEAD`가 가리키고 있는 브랜치는 어디고, 어떤 브랜치가 있고 만들어졌는지를 `commit` history와 함께 확인이 가능하다.
+
+```
+$ git log --oneline --decorate --graph --all
+```
+
+<img src="assets/git_log_graph_all.png" width="60%" height="60%">
+
 ### 이해가 덜 된 점
 
 - `Staging Area`에 체크섬을 저장한다, 와 Git 저장소에 저장한다는게 어떤게 다를까?
