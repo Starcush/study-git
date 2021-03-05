@@ -47,7 +47,7 @@
   - **Modified** : 수정한 파일을 아직 로컬 데이터베이스에 커밋하지 않은 상태
   - **Staged** : 수정한 파일을 곧 커밋할 것이라고 표시한 상태
 - 이 3가지 상태는 Git 프로젝트의 3가지 단계와 연결돼 있다. > **Git Directory**, **Working Tree**, **Staging Area**.
-  <img src="assets/git_project_3_steps.png" width="500px" height="300px">
+  <img src="assets/git_project_3_steps.png" width="60%" height="60%">
   - **Git Directory** : git이 프로젝트의 메타데이터와 객체 데이터베이스를 저장하는 곳. clone을 할 때 Git Directory가 만들어진다.
   - **Working Tree** : 프로젝트의 특정 버전을 Checkout 한 것이다. 내가 작업하고 있는 로컬에 git directory가 있고, 그 디렉토리에 있는 데이터로 working tree를 만든다.
   - **Staging Area** : git directory에 있으며 곧 커밋할 파일에 대한 정보를 저장한다.

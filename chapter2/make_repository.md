@@ -14,14 +14,14 @@
    ```
 
 2. `git init` 명령어를 통해서 `.git`이라는 하위 디렉토리를 만든다.<br><br>
-   <img src="assets/git_init_before.png" width="400px" height="300px">&nbsp;
-   <img src="assets/git_init_after.png" width="400px" height="300px">
+   <img src="assets/git_init_before.png" width="60%" height="60%">&nbsp;
+   <img src="assets/git_init_after.png" width="60%" height="60%">
    <br>
    `.git`디렉토리에는 저장소(repository)에 필요한 뼈대가 있지만 자세한 내용은 이후에 다시 알아보자.
 
 3. 이후에는 `git add`명령을 통해 파일을 추가하고 `git commit`명령으로 커밋한다. <br>
    추가내용으로 github에서 기본 브랜치를 `master`에서 `main`으로 변경하기로 했고([github page](https://github.com/github/renaming)) master 브랜치의 이름을 main으로 변경한 후 진행해 봤다<br>
-   <img src="assets/git_add.png" width="400px" height="300px">
+   <img src="assets/git_add.png" width="60%" height="60%">
 
    ```
    git branch -M main
@@ -43,4 +43,4 @@
    git clone https://github.com/Starcush/study-git.git studyingGit
    ```
 
-<img src="assets/git_clone.png" width="400px" height="300px">
+<img src="assets/git_clone.png" width="60%" height="60%">
