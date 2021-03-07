@@ -7,8 +7,8 @@ Git으로 프로젝트를 하다보면 모든 단계에서 어떤 것은 되돌�
 이미 커밋을 했는데 어떤 파일을 빼먹었거나 커밋 메세지를 잘못 적을 때 다시 커밋하고 싶으면 `git commit --amend` 옵션을 사용한다.
 
 - 확인을 위해 새로만든 `undoing_things.md` 파일을 커밋했다. 그래서 지금 새로 작성한 부분을 다시 `staging` 한 후 `git commit --amend` 명령을 사용한 후 `git log -p` 를 통해 커밋 내용을 확인해보려 한다.
-  <img src="assets/git_amend.png" width="450px" height="250px">
-  <img src="assets/git_commit_amend.png" width="450px" height="300px">
+  <img src="assets/git_amend.png" width="60%" height="60%">
+  <img src="assets/git_commit_amend.png" width="60%" height="60%">
 
   - 사진을 통해 확인해보면 `git commit --amend` 명령을 하면 커밋 메세지를 다시 작성할 수 있는 것을 볼 수 있다. 그리고 먼저 했던 커밋의 내용은 `커밋할 변경 사항`에 있고 변경했지만 아직 `stage`상태가 아닌 내용은 `커밋하도록 정하지 않은 변경 사항`에 있다.
   - 그래서 추가로 커밋하고 싶다면 `git add` 명령을 통해 `Staging Area`로 옮긴 뒤에 `git commit --amend` 명령을 사용하면 된다.
@@ -19,7 +19,7 @@ Git으로 프로젝트를 하다보면 모든 단계에서 어떤 것은 되돌�
 
 - 지금까지 추가한 내용을 모두 `git add` 했는데 생각해보니 `undoing_things.md` 파일을 아직 작성할거 같아서 이를 다시 `unstage` 하고 싶다. 그럴 경우에는 `git reset HEAD chapter2/undoing_things.md` 명령을 사용한다.
 
-<img src="assets/git_reset.png" width="450px" height="300px">
+<img src="assets/git_reset.png" width="60%" height="60%">
 
 - `reset`은 더 많은 기능을 가지고 있지만 뒤에서 더 자세히 다룰 것이기 때문에 이번엔 이정도만 알아보자.
 

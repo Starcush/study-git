@@ -5,11 +5,11 @@
 ### 리모트 저장소 확인하기
 
 `git remote` 명령으로 현재 프로젝트에 등록된 리모트 저장소를 확인할 수 있다. 저장소를 `clone`하면 `origin`이라는 리모트 저장소가 자동으로 등록되기 때문에 `origin`이라는 이름을 볼 수 있다.
-<img src="assets/git_remote2.png" width="450px" height="250px">
+<img src="assets/git_remote2.png" width="60%" height="60%">
 
 추가로 지금 `progit`프로젝트의 리모트 저장소를 확인해보자.
 
-<img src="assets/git_remote.png" width="450px" height="250px">
+<img src="assets/git_remote.png" width="60%" height="60%">
 
 ### 리모트 저장소 추가하기
 
@@ -75,10 +75,10 @@ $ git push origin master
 `git remote show [리모트 저장소 이름]` 명령으로 리모트 저장소의 구체적인 정보를 확인할 수 있다.
 
 `progit` 프로젝트를 하고 있는 저장소를 확인해보자.
-<img src="assets/git_remote_show.png" width="450px" height="250px">
+<img src="assets/git_remote_show.png" width="60%" height="60%">
 
 특별한 내용이 없으니 개인프로젝트를 하고 있는 저장소를 추가로 확인해보자.
-<img src="assets/git_remote_show2.png" width="450px" height="250px">
+<img src="assets/git_remote_show2.png" width="60%" height="60%">
 
 작업이 끝난 브랜치를 관리하지 않음을 알 수 있었다..
 

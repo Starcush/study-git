@@ -38,11 +38,11 @@ $ git config --global alias.visual '!gitk'
 
 - `gitk`가 뭘까?? 터미널에 입력했더니 찾을 수 없는 명령이라고 한다. `git` 페이지([링크](https://git-scm.com/book/ko/v2/Appendix-A%3A-%EB%8B%A4%EC%96%91%ED%95%9C-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-Git-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-GUI))에는 git을 설치하면 같이 설치된다고 하는데 문제를 찾아보고 `gitk`가 뭘 보여주는지 알아보자.
 
-  <img src="assets/gitk.png" width="400px" height="250px">
+  <img src="assets/gitk.png" width="60%" height="60%">
 
 - 그냥 `sudo apt-get install gitk` 를 통해 설치했더니 등장했다.
 
-  <img src="assets/gitk_gui.png" width="600px" height="400px">
+  <img src="assets/gitk_gui.png" width="60%" height="60%">
 
 ### 마무리
 
@@ -56,6 +56,6 @@ $ git config --global alias.visual '!gitk'
   $ git config -l | grep alias
   ```
 
-  <img src="assets/git_config_list.png" width="400px" height="250px">
+  <img src="assets/git_config_list.png" width="60%" height="60%">
 
 - `alias`라는 기능이 있는건 얼마 전에 알았는데, 이번 공부를 통해 알게되는 많은 명령어를 `alias`를 통해서 편하게 사용하고 싶다는 생각
