@@ -26,3 +26,7 @@ $ git switch -c git-branch-merge
 - 관련된 내용
   - [Outsider's Dev Story - 새 버전에 맞게 git checkout 대신 switch/restore 사용하기](https://blog.outsider.ne.kr/1505)
   - [honeymon.io - [Tech] Git 2.23.0 출시: checkout 기능 분리(switch, restore)](http://honeymon.io/tech/2019/08/30/git-2.23-release.html)
+
+`git-branch-merge`라는 브랜치를 만들고 이동했기 때문에 `HEAD`는 `git-branch-merge`를 가리키고 있고, 새롭게 추가하고 커밋한다면 `git-branch-merge` 브랜치가 앞서가게 만든다.
+
+<img src="assets/git_switch.png" width="60%" height="60%">
