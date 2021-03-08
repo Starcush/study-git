@@ -43,3 +43,30 @@ $ git switch -c git-branch-merge
 2. Stash나 커밋 Amend를 사용한다.
 
 그런데 2번은 나중에 다룰 것이기 때문에 이번에는 수정한 내용을 모두 커밋한 후 새로운 브랜치로 이동해보자.
+기존에 작업하던 내용을 모두 커밋한 후 `hotfix`라는 브랜치를 생성하고 `checkout`했다.
+
+```
+$ git switch -c hotfix
+```
+
+그리고 추적하고 있는 파일 하나를 수정한 후 커멋을 하고 `git log` 명령을 사용해서 `hotfix`가 어떻게 갈라져 나왔는지 확인해보자
+
+```
+$ git log --graph --all
+```
+
+<img src="assets/hotfix_example.png" width="60%" height="60%">
+
+- 내용을 확인해보면 `c7c6b5` 커밋에서 새로운 내용을 추가해서 `b17bf5` 커밋을 만들었고, `b17bf5`에서 `git-branch-merge` 브랜치를 만들어서 `3a6cf9` 커밋을 추가했다.
+- 그 후 `main`으로 `checkout`한 후 `hotfix` 브랜치를 생성했고, 새로운 커밋인 `f68c07`을 만들었다.
+
+`hotfix` 브랜치를 만들고 이슈가 해결됐다면 `main` 브랜치에 합쳐야 한다. `git merge` 명령으로 아래와 같이 한다.
+
+```
+$ git switch main
+$ git merge hotfix
+업데이트 중 c7c6b56..f68c070
+Fast-forward
+ chapter3/test_for_main_branch.md | 2 ++
+ 1 file changed, 2 insertions(+)
+```
