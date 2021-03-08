@@ -27,6 +27,19 @@ $ git switch -c git-branch-merge
   - [Outsider's Dev Story - 새 버전에 맞게 git checkout 대신 switch/restore 사용하기](https://blog.outsider.ne.kr/1505)
   - [honeymon.io - [Tech] Git 2.23.0 출시: checkout 기능 분리(switch, restore)](http://honeymon.io/tech/2019/08/30/git-2.23-release.html)
 
-`git-branch-merge`라는 브랜치를 만들고 이동했기 때문에 `HEAD`는 `git-branch-merge`를 가리키고 있고, 새롭게 추가하고 커밋한다면 `git-branch-merge` 브랜치가 앞서가게 만든다.
-
+`git-branch-merge`라는 브랜치를 만들고 이동했기 때문에 `HEAD`는 `git-branch-merge`를 가리키고 있고
 <img src="assets/git_switch.png" width="60%" height="60%">
+
+새롭게 추가하고 커밋한다면 `git-branch-merge` 브랜치가 앞서게 된다.
+<img src="assets/git_log_after_new_commit.png" width="60%" height="60%">
+
+- `HEAD`가 가리키고 있는 `git-branch-merge`가 `main`브랜치보다 1개의 커밋만큼 앞서 있는 것을 볼 수 있다.
+
+그런데 `git-branch-merge`에서 작업하던 도중 `main` 브랜치에서 새롭게 해결해야할 이슈가 발생한다면 어떻게 해야할까?
+이때는 그냥 `main`브랜치로 돌아가면 되는데 한 가지 주의해야할 점은 충돌을 방지하기 위해 워킹 디렉토리를 정리하는 것이다.
+워킹 디렉토리를 정리하는 방법은 2가지가 있는데
+
+1. 작업하던 내용을 모두 커밋한다.
+2. Stash나 커밋 Amend를 사용한다.
+
+그런데 2번은 나중에 다룰 것이기 때문에 이번에는 수정한 내용을 모두 커밋한 후 새로운 브랜치로 이동해보자.
