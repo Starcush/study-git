@@ -111,3 +111,28 @@ hotfix 브랜치 삭제 (과거 f68c070).
 `git-branch-merge` 브랜치에 `hotfix`가 적용되게 하고 싶다면 `git-branch-merge`에 `main`을 병합하거나 그 반대를 하면 가능하다.
 
 ### Merge의 기초
+
+지금까지 작업한 `git-branch-merge` 브랜치를 `main` 브랜치에 병합해보자.
+
+```
+$ git switch main
+$ git merge git-branch-merge
+```
+
+<img src="assets/3_way_merge.png" width="60%" height="60%">
+
+그 결과를 보면 `hotfix`를 병합했을 때 봤던 `fast-forward`가 안 보이는 것을 알 수 있다.
+그 이유는 `main` 브랜치는 `hotfix`의 최근에 남겼던 커밋을 가리키고 있고, 이는 처음 `git-branch-merge`가 갈라져 나왔던 `main` 브랜치의 커밋 보다는 앞서가 있기 때문에 `fast-forward` 방식을 적용하지 않는다. 이 경우에는 `Git`은 각 브랜치가 가리키는 커밋 두 개와 공통 조상 하나를 사용하여 `3-way Merge`를 한다.
+
+- 브랜치 이름은 좀 다르지만 `progit`에서 그림으로 알기 쉽게 만들어 놔서 해동 이미지를 가져와 봤다.
+  <img src="assets/3_way_merge_figure.png" width="60%" height="60%">
+
+`3-way Merge`는 `fast forward`처럼 단순히 브랜치 포인터를 최신 커밋으로 옮기는 게 아니라 별도의 커밋을 만들고 나서 해당 브랜치가 그 커밋을 가리키도록 이동시킨다. 그래서 이런 커밋을 `Merge 커밋`이라고 부른다.
+
+- <img src="assets/3_way_merge_commit.png" width="60%" height="60%">
+
+- 그럼 실제 내 프로젝트에서 어떻게 `merge 커밋`이 만들어졌는지 확인하자.
+  - <img src="assets/show_merge_commit.png" width="60%" height="60%">
+  - `fast forward`의 경우 `main` 브랜치가 `hotfix`의 커밋인 `f68c070`을 가리켰는데 `git-branch-merge`의 최근 커밋인 `2916afe`를 가리키는게 아니라 `633e8f5` 커밋을 새롭게 만들었다.
+
+`git-branch-merge`는 역할을 다 했기 때문에 필요없는 브랜치는 삭제한다.
