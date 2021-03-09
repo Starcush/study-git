@@ -70,3 +70,44 @@ Fast-forward
  chapter3/test_for_main_branch.md | 2 ++
  1 file changed, 2 insertions(+)
 ```
+
+`merge` 메세지를 보면 `Fast-forward`라는게 보인다. 이는 `hotfix` 브랜치가 가리키는 `f68c070` 커밋이 `c7c6b56` 커밋에 기반한 브랜치이기 때문에 브랜치 포인터는 `merge` 과정 없이 최신 커밋으로 이동하기만 한다. 이런 `merge` 방식을 `fast forward`라고 부른다.
+
+`hotfix` 브랜치를 통해 급한 이슈를 해결했으니 필요없는 브랜치는 삭제해보자.
+
+```
+$ git branch -d hotfix
+```
+
+그랬더니 에러 메세지가 뜨면서 삭제가 되지 않는다.
+
+```
+error: 'hotfix' 브랜치가 완전히 병합되지 않았습니다.
+정말로 삭제하려면 'git branch -D hotfix' 명령을 실행하십시오.
+```
+
+- 그래서 `progit`에서 삭제하는대로 했는데 왜 안되는지 찾아봤다
+- [stackoverflow](https://stackoverflow.com/questions/7548926/git-error-the-branch-x-is-not-fully-merged)
+- [stackoverflow](https://stackoverflow.com/questions/40515232/deleting-merged-branch-gives-error-the-branch-x-is-not-fully-merged/40515435)
+- 설명하는 용어들 중 모르는 용어가 많아서 완벽히 이해하지는 못했지만 이해한 범위에서 설명하자면
+
+1. 에러 메세지라기 보다는 경고 메세지이다. 그래서 `git branch -D`를 사용해서 지워도 문제는 안된다.
+2. 지우려는 브랜치를 현재의 브랜치에서 확인이 안될 경우(`hotfix` 브랜치는 `main` 브랜치에서 갈라져 나왔고, `main`에 `merge`했기 때문에 `hotfix`에 있던 commit 기록은 `main`에 남아 있다) 경고 메세지를 보여주는 것이다.
+3. 그래서 처음에 `hotfix`를 지우려고 할 때 `HEAD`는 `git-branch-merge`에 있었기 때문에 `hotfix`브랜치에서 작업한 커밋 기록을 확인할 수 없었기 때문에 경고 메세지를 남겼다는 것
+4. `main` 브랜치로 이동 후 삭제했더니 경고 메세지 없이 삭제가 가능했다.
+
+```
+$ git switch main
+$ git branch -d hotfix
+hotfix 브랜치 삭제 (과거 f68c070).
+```
+
+그러면 원래 작업하던 `git-branch-merge` 브랜치로 이동해서 원래 하던 일을 계속해보자.
+
+<img src="assets/git_branch_seperate.png" width="60%" height="60%">
+
+`git log --graph --all` 명령을 통해 보면 `hotfix` 브랜치가 병합된 `main` 브랜치와는 별개로 `git-branch-merge` 브랜치가 커밋이 쌓이는 것을 확인할 수가 있다. 한마디로 **전에 작업한 `hotfix`가 `git-branch-merge` 브랜치에 영향을 끼치지 않는다는 것**
+
+`git-branch-merge` 브랜치에 `hotfix`가 적용되게 하고 싶다면 `git-branch-merge`에 `main`을 병합하거나 그 반대를 하면 가능하다.
+
+### Merge의 기초
