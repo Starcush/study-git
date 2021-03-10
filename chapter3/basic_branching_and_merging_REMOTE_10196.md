@@ -143,10 +143,3 @@ $ git merge git-branch-merge
 `test-conflict` 브랜치를 만들어서 어떻게 충돌 메세지를 확인해 보자.
 
 지금까지 작성한 내용을 `test-conflict` 브랜치에 커밋한 후 `main` 브랜치에서 같은 위치에 새로운 내용을 추가 한 후 `test-conflict`를 `main`에 `merge`하는 작업을 시도해 보려고 한다.
-
-```
-$ git merge test-conflict
-자동 병합: chapter3/basic_branching_and_merging.md
-충돌 (내용): chapter3/basic_branching_and_merging.md에 병합 충돌
-자동 병합이 실패했습니다. 충돌을 바로잡고 결과물을 커밋하십시오.
-```
