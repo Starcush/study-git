@@ -136,3 +136,7 @@ $ git merge git-branch-merge
   - `fast forward`의 경우 `main` 브랜치가 `hotfix`의 커밋인 `f68c070`을 가리켰는데 `git-branch-merge`의 최근 커밋인 `2916afe`를 가리키는게 아니라 `633e8f5` 커밋을 새롭게 만들었다.
 
 `git-branch-merge`는 역할을 다 했기 때문에 필요없는 브랜치는 삭제한다.
+
+```
+이 부분은 `test-conflict`에서도 수정한 부분
+```
